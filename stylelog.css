@@ -1,5 +1,5 @@
 body{
-	margin: 0;
+	margin: 20px;
 	padding: 0;
 	display: flex;
 	justify-content: center;
@@ -14,8 +14,8 @@ body{
 }
 
 .main{
-	width: 350px;
-	height: 800px;
+	width: 420px;
+	height: 790px;
 	background: rgb(255, 255, 255);
 	overflow: hidden;
 	border-radius: 10px;
@@ -34,7 +34,7 @@ label{
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 60px;
+	margin: 5px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -83,7 +83,7 @@ button:hover, #enviar:hover {
 	background: #d5e6d8;
 }
 .login{
-	height: 1000px;
+	height: 500px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
@@ -91,11 +91,11 @@ button:hover, #enviar:hover {
 }
 .login label{
 	color: #108a00;
-	transform: scale(.6);
+	transform: scale(.7);
 }
 
 #chk:checked ~ .login{
-	transform: translateY(-500px);
+	transform: translateY(-400px);
 }
 #chk:checked ~ .login label{
 	transform: scale(1);	
@@ -103,3 +103,5 @@ button:hover, #enviar:hover {
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+
+
