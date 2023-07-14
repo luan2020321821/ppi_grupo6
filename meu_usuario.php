@@ -23,9 +23,10 @@ $cpf = $puxa["cpf"];
 ?>
 
 <!DOCTYPE html>
+
     <html>
 
-    <head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -35,13 +36,80 @@ $cpf = $puxa["cpf"];
     <meta name="author" content="" />
 
     <title>Controle de Progressões CPPD</title>
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome2.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style2.css">
-</head>
+    <link href="css/responsive.css" rel="stylesheet" />
+	  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="css/font-awesome2.min.css">
+	  <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    
+	  <!--rodapé da pagina-->
+	  <link href="css/font-awesome.min.css" rel="stylesheet" />
+	  <link href="css/style.css" rel="stylesheet" />
+    
+  </head>
+  
 <body>
-	<section class="py-5 my-5">
+
+<div class="hero_area">
+    <header class="header_section">
+      <!--<div class="header_top">
+        <a class="cppd-link">
+          <span>CPPD</span> Comissão Permanente de Pessoal Docente
+        </a>
+      <div class="container-fluid">
+          <div class="top_nav_container">
+            <div>
+              <img height="208" src="images/if_logo.png" class="goofy_image">
+            </div>            
+            <div class="user_option_box">
+              <a href="index.php" class="cart-link">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span>
+                  Olá <b><?php echo $nome; ?></b>
+                </span>
+              </a>
+              <a href="meu_usuario.php" class="cart-link">
+                <i class="fa fa-id-card" aria-hidden="true"></i>
+                <span>
+                  Minhas Informações
+                </span>
+              </a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="membrocppd.php">
+              <a class="nav-link" href="index.php">Você está logado como: Membro da CPPD <span class="sr-only"></span></a>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="restrito.php">Início<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="anunciar.php">Progressão docente</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="meus_anuncios.php">Meu Histórico</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+	<section class="py-3 my-3">
 		<div class="container">
 			<h1 class="mb-5">Configurações da conta</h1>
 			<div class="bg-white shadow rounded-lg d-block d-sm-flex">
@@ -59,7 +127,7 @@ $cpf = $puxa["cpf"];
 						</a>
 						<a class="nav-link" id="password-tab" data-toggle="pill" href="#password" role="tab" aria-controls="password" aria-selected="false">
 							<i class="fa fa-key text-center mr-1"></i> 
-							Senha
+							Redefinir Senha
 						</a>
 						<a class="nav-link" id="notification-tab" data-toggle="pill" href="#notification" role="tab" aria-controls="notification" aria-selected="false">
 							<i class="fa fa-bell text-center mr-1"></i> 
@@ -130,11 +198,11 @@ $cpf = $puxa["cpf"];
 					    </div>
                         </div>
 					<div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
-						<h3 class="mb-4">Password Settings</h3>
+						<h3 class="mb-4">Redefinir senha</h3>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Old password</label>
+								  	<label>Senha antiga</label>
 								  	<input type="password" class="form-control">
 								</div>
 							</div>
@@ -142,29 +210,29 @@ $cpf = $puxa["cpf"];
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>New password</label>
+								  	<label>Nova senha</label>
 								  	<input type="password" class="form-control">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>Confirm new password</label>
+								  	<label>Confirme a senha</label>
 								  	<input type="password" class="form-control">
 								</div>
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
+							<button class="btn btn-primary">Atualizar</button>
+							<button class="btn btn-light">Cancelar</button>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="notification" role="tabpanel" aria-labelledby="notification-tab">
-						<h3 class="mb-4">Notification Settings</h3>
+						<h3 class="mb-4">Configurações de notificação</h3>
 						<div class="form-group">
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value="" id="notification1">
 								<label class="form-check-label" for="notification1">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum accusantium accusamus, neque cupiditate quis
+									Receber notifições de novas progressões.
 								</label>
 							</div>
 						</div>
@@ -172,7 +240,7 @@ $cpf = $puxa["cpf"];
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value="" id="notification2" >
 								<label class="form-check-label" for="notification2">
-									hic nesciunt repellat perferendis voluptatum totam porro eligendi.
+									Receber notificações quando a avaliação for concluída.
 								</label>
 							</div>
 						</div>
@@ -180,20 +248,114 @@ $cpf = $puxa["cpf"];
 							<div class="form-check">
 								<input class="form-check-input" type="checkbox" value="" id="notification3" >
 								<label class="form-check-label" for="notification3">
-									commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit
+									Receber notificações de avaliações pendentes.
 								</label>
 							</div>
 						</div>
 						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
+							<button class="btn btn-primary">Atualizar</button>
+							<button class="btn btn-light">Cancelar</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	<!--rodapé da pagina-->
+	<section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              <a href="" class="navbar-brand">
+                <span>
+                  Topo
+                </span>
+              </a>
+            </h5>
+            <p>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              IFFar Campus FW
+            </p>
+            <p>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              +01 123456789
+            </p>
+            <p>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              cppd2023@iffar.edu.br
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Informações
+            </h5>
+            <p>
+              Sistema em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Links Úteis
+            </h5>
+            <ul>
+              <li>
+                <a href="index.php">
+                  Página Inicial
+                </a>
+              </li>
+              <li>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+         <!-- <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> Todos os direitos reservados por
+        <a href="https://html.design/">Grupo Davi, Gabriel Brizola e Luan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
