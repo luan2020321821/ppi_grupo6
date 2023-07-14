@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" >
 <head>
+	<title>Cadastro/Login da CPPD</title>
   <meta charset="UTF-8">
   <link rel="icon" href="images/IF1.png" type="image/gif" />
-  <title>Cadastro/Login da CPPD</title>
   <link rel="stylesheet" href="./stylelog.css">
-
-</head>
-<body>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>logar</title>
 	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
 <body>
-	<div class="main">  	
+	<div class="main"> 
+
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
@@ -39,10 +32,18 @@
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email1" placeholder="Email" required="">
 					<input type="password" name="senha1" placeholder="Senha" required="">
-					<button>Logar</button>
+					<button>Entrar</button>
+					<button onclick="cadastro()">Esqueceu a senha?</button>
 				</form>
 			</div>
 	</div>
+	<script type="text/javascript">
+		function cadastro(){
+			alert("Entre em contato com a administrador do sistema. \nadministrador@iffarroupilha.br")
+		}
+	</script>
+
+	
 </body>
 </html>
 

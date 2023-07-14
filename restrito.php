@@ -8,15 +8,18 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+
     <title>Controle de Progressões CPPD</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
-    
 
+    <!--rodapé da pagina-->
+	  <link href="css/font-awesome.min.css" rel="stylesheet" />
+	  <link href="css/style.css" rel="stylesheet" />
 </head>
+
 <?php
             session_start();
 
@@ -76,13 +79,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="restrito.php">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="restrito.php">Início<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="anunciar.php">Anunciar</a>
+                  <a class="nav-link" href="anunciar.php">Progressão docente</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="meus_anuncios.php">Meus Anuncios</a>
+                  <a class="nav-link" href="meus_anuncios.php">Meu Histórico</a>
                 </li>
               </ul>
             </div>
@@ -214,6 +217,7 @@
       </div>
     </div>
   </section>
+  <!--rodapé da pagina-->
   <section class="info_section ">
     <div class="container">
       <div class="row">
@@ -246,7 +250,7 @@
               Informações
             </h5>
             <p>
-              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
+              Sistema em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023.
             </p>
           </div>
         </div>
@@ -258,7 +262,7 @@
             <ul>
               <li>
                 <a href="index.php">
-                  Home
+                  Página Inicial
                 </a>
               </li>
               <li>
@@ -268,7 +272,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="info_form ">
+         <!-- <div class="info_form ">
             <h5>
               Newsletter
             </h5>
@@ -291,7 +295,7 @@
               <a href="">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
               </a>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>

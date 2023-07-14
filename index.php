@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="images/IF1.png" type="image/gif" />
+    <link rel="icon" href="images/IF1.png" type="" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -15,6 +15,10 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
+
+    <!--rodapé da pagina-->
+	  <link href="css/font-awesome.min.css" rel="stylesheet" />
+	  <link href="css/style.css" rel="stylesheet" />
     
 
     </head>
@@ -59,7 +63,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.php">Página Inicial<span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             </div>
@@ -211,6 +215,7 @@
       </div>
     </div>
   </section>
+  <!--rodapé da pagina-->
   <section class="info_section ">
     <div class="container">
       <div class="row">
@@ -243,7 +248,7 @@
               Informações
             </h5>
             <p>
-              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
+              Sistema em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023.
             </p>
           </div>
         </div>
@@ -255,7 +260,7 @@
             <ul>
               <li>
                 <a href="index.php">
-                  Home
+                  Página Inicial
                 </a>
               </li>
               <li>
@@ -265,7 +270,7 @@
           </div>
         </div>
         <div class="col-md-3">
-          <div class="info_form ">
+        <!--  <div class="info_form ">
             <h5>
               Newsletter
             </h5>
@@ -288,7 +293,7 @@
               <a href="">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
               </a>
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
