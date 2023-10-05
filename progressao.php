@@ -16,6 +16,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
   <link href="css/style.plh.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -38,30 +40,29 @@
   $titulacao = $puxa["titulacao"];
   $cpf = $puxa["cpf"];
 
-  
-  $classe = $puxa["membrocppd"]; 
 
-  // Verificar se já existe um requerimento para o usuário logado
   $sql_check_requerimento = "SELECT requerimento_existente FROM controle_requerimentos WHERE usuario_id = (SELECT id_usuario FROM usuario WHERE email='$emaillogado')";
   $query_check_requerimento = mysql_query($sql_check_requerimento) or die(mysql_error());
   $result_check_requerimento = mysql_fetch_assoc($query_check_requerimento);
-  
 
-  // Verifique se o resultado da consulta não está vazio antes de atribuir a variável
+
+
   if (!empty($result_check_requerimento)) {
     $requerimento_existente = $result_check_requerimento['requerimento_existente'];
   } else {
-    // Se a consulta não retornar resultados, defina a variável como 0 ou qualquer outro valor padrão, dependendo da lógica do seu aplicativo
-    $requerimento_existente =! 0;
+
+    $requerimento_existente = !0;
   }
   ?>
-  
+
 
   <div class="hero_area">
     <header class="header_section">
       <div class="header_top">
         <div class="cppd-link">
-          <span><h1>CPPD</h1></span>Comissão Permanente de Pessoal Docente
+          <span>
+            <h1>CPPD</h1>
+          </span>Comissão Permanente de Pessoal Docente
         </div>
         <div class="container-fluid">
           <div class="top_nav_container">
@@ -91,13 +92,8 @@
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
             <a class="navbar-brand" href="membrocppd.php">
-            <?php
-            if($classe == 1){
-                 echo "<a class='nav-link'>Você está logado como: Membro da CPPD <span class='sr-only'></span></a>";
-            } else{
-              echo "<a class='nav-link' >Você está logado como: Professor <span class='sr-only'></span></a>";
-            }
-            ?>
+              <a class="nav-link" href="index.php">Você está logado como: Membro da CPPD <span
+                  class="sr-only"></span></a>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,16 +103,16 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php">Home</a>
+                  <a class="nav-link" href="membrocppd.php">Home</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="anunciar.php">Progressão Docente <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="progressao.php">Progressão Docente <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="lista_usuarios.php">Lista de Usuários</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="consulta.php">Consultar Progressão</a>
-                </li>              
-                <li class="nav-item">
-                  <a class="nav-link" href="#">**Histórico</a>
                 </li>
               </ul>
             </div>
@@ -161,24 +157,25 @@
       </div>
     </div>
 
-    
+
     <div class="formbold-main-wrapper">
-        <?php
-        $sql = "SELECT COUNT(*) AS total_requerimentos FROM requerimentos WHERE usuario_id = (SELECT id_usuario FROM usuario WHERE email='$emaillogado')";
-        $query = mysql_query($sql) or die(mysql_error());
-        $result = mysql_fetch_assoc($query);
+      <?php
+      $sql = "SELECT COUNT(*) AS total_requerimentos FROM requerimentos WHERE usuario_id = (SELECT id_usuario FROM usuario WHERE email='$emaillogado')";
+      $query = mysql_query($sql) or die(mysql_error());
+      $result = mysql_fetch_assoc($query);
 
-        //echo "Valor de \$requerimento_existente: " . $requerimento_existente; // Adicione esta linha para depuração
-        if ($result['total_requerimentos'] == 0) {
-          //echo $emaillogado;
-            ?>
-            <button class='btn btn-primary' data-toggle='modal' data-target='#requerimentoModal'>Criar Requerimento</button>
-            
-            <?php
-        }
+
+      if ($result['total_requerimentos'] == 0) {
+
         ?>
+        <button class='btn btn-primary' data-toggle='modal' data-target='#requerimentoModal'>Criar Requerimento</button>
 
-      <!-- Modal -->
+        <?php
+      }
+      ?>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
       <div class="modal fade" id="requerimentoModal" tabindex="-1" role="dialog"
         aria-labelledby="requerimentoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -209,24 +206,89 @@
         </div>
       </div>
     </div>
-      <div class="heading_container heading_center">
-        <div class="requerimentos-section">
-          <?php
-          $emaillogado = $_SESSION['email'];
-          $sql = "SELECT * FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado')";
-          $result = mysql_query($sql) or die(mysql_error());
+    <div class="heading_container heading_center">
+      <div class="requerimentos-section">
+        <?php
+        $emaillogado = $_SESSION['email'];
+        $sql = "SELECT * FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado')";
+        $result = mysql_query($sql) or die(mysql_error());
 
-          while ($row = mysql_fetch_assoc($result)) {
-            echo "<div class='requerimento'>";
-            echo "<h2>" . $row['titulo'] . "</h2>";
-            echo "<p>" . $row['descricao'] . "</p>";
-            echo "<button class='btn btn-primary' data-toggle='modal' data-target='#parteModal'>Criar Parte</button>";
+        while ($row = mysql_fetch_assoc($result)) {
+          echo "<div class='requerimento'>";
+          echo "<h2>" . $row['titulo'] . "</h2>";
+          echo "<p>" . $row['descricao'] . "</p>";
+          echo "<button class='btn btn-primary' data-toggle='modal' data-target='#parteModal' data-id='" . $row['id'] . "'>Criar Parte</button>";
+          echo "</div>";
+        }
+
+        ?>
+        <?php
+        $emaillogado = $_SESSION['email'];
+
+
+        $sqlPartes = "SELECT * FROM partes WHERE idrequerimentos=(SELECT id FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado') ORDER BY idrequerimentos DESC LIMIT 1)";
+        $resultPartes = mysql_query($sqlPartes) or die(mysql_error());
+
+        while ($rowParte = mysql_fetch_assoc($resultPartes)) {
+          echo "<div class='partes-section'>";
+          echo "<div class='parte'>";
+          echo "<h2>" . $rowParte['descricao'] . "</h2>";
+          echo "<a href='delete_parte.php?id=" . $rowParte['id'] . "' class='btn btn-danger'>Excluir</a>"; // Botão de exclusão
+          echo "<button class='btn btn-primary' data-toggle='modal' data-target='#categoriaModal' data-id='" . $rowParte['id'] . "'>Criar Categoria</button>";
+
+
+          $parteId = $rowParte['id'];
+          $sqlCategorias = "SELECT * FROM categorias WHERE parte_id=$parteId";
+          $resultCategorias = mysql_query($sqlCategorias) or die(mysql_error());
+
+          while ($rowCategoria = mysql_fetch_assoc($resultCategorias)) {
+            echo "<div class='categorias-section'>";
+            echo "<h2>" . $rowCategoria['descricao'] . "</h2>";
+            echo "<a href='delete_categoria.php?id=" . $rowCategoria['id'] . "' class='btn btn-danger'>Excluir</a>"; // Botão de exclusão
+            echo "<button class='btn btn-primary' data-toggle='modal' data-target='#criterioModal' data-id='" . $rowCategoria['id'] . "'>Criar Critério</button>";
+
+
+
+            $categoriaId = $rowCategoria['id'];
+            $sqlCriterios = "SELECT * FROM criterios WHERE categoria_id=$categoriaId";
+            $resultCriterios = mysql_query($sqlCriterios) or die(mysql_error());
+
+            while ($rowCriterio = mysql_fetch_assoc($resultCriterios)) {
+              echo "<div class='criterios-section'>";
+              echo "<h2>" . $rowCriterio['descricao'] . "</h2>";
+              echo "<p>" . $rowCriterio['pontos'] . "</p>";
+              echo "<a href='delete_criterio.php?id=" . $rowCriterio['id'] . "' class='btn btn-danger'>Excluir</a>"; // Botão de exclusão
+              echo "</div>";
+            }
+
             echo "</div>";
           }
-          ?>
-        
 
-        <!-- Modal -->
+          echo "</div>";
+          echo "</div>";
+        }
+
+
+        ?>
+        <script>
+          $(document).ready(function () {
+
+            $('#parteModal').on('show.bs.modal', function (e) {
+              var requerimentoId = $(e.relatedTarget).data('id');
+              $(this).find('[name="requerimento_id"]').val(requerimentoId);
+            });
+
+            $('#categoriaModal').on('show.bs.modal', function (e) {
+              var parteId = $(e.relatedTarget).data('id');
+              $(this).find('[name="parte_id"]').val(parteId);
+            });
+
+            $('#criterioModal').on('show.bs.modal', function (e) {
+              var categoriaId = $(e.relatedTarget).data('id');
+              $(this).find('[name="categoria_id"]').val(categoriaId);
+            });
+          });
+        </script>
         <div class="modal fade" id="parteModal" tabindex="-1" role="dialog" aria-labelledby="parteModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -239,7 +301,7 @@
               </div>
               <form action="parte.php" method="post">
                 <div class="modal-body">
-                  <input type="hidden" name="requerimento_id" value="<?php echo $row['id_requerimento']; ?>">
+                  <input type="hidden" name="requerimento_id" value="">
                   <div class="form-group">
                     <label for="descricao">Nome</label>
                     <input type="text" class="form-control" id="descricao" name="descricao">
@@ -253,21 +315,9 @@
             </div>
           </div>
         </div>
-        <!--PARTES-->
-        <div class="partes-section">
-          <?php
-          $emaillogado = $_SESSION['email'];
-          $sql = "SELECT * FROM partes WHERE idrequerimentos=(SELECT id FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado') ORDER BY idrequerimentos DESC LIMIT 1)";
-          $result = mysql_query($sql) or die(mysql_error());
 
-          while ($row = mysql_fetch_assoc($result)) {
-            echo "<div class='parte'>";
-            echo "<h2>" . $row['descricao'] . "</h2>";
-            echo "<button class='btn btn-primary' data-toggle='modal' data-target='#categoriaModal'>Criar Categoria</button>";
-            echo "</div>";
-          }
-          ?>
-          <!-- Modal -->
+
+
         <div class="modal fade" id="categoriaModal" tabindex="-1" role="dialog" aria-labelledby="categoriaModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -280,7 +330,7 @@
               </div>
               <form action="categoria.php" method="post">
                 <div class="modal-body">
-                  <input type="hidden" name="parte_id" value="<?php echo $row['id_parte']; ?>">
+                  <input type="hidden" name="parte_id" value=""> 
                   <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao"></textarea>
@@ -295,22 +345,9 @@
           </div>
         </div>
 
-        <div class="categorias-section">
-          <?php
-          $emaillogado = $_SESSION['email'];
-          $sql = "SELECT * FROM categorias WHERE parte_id=(SELECT id FROM partes WHERE idrequerimentos=(SELECT id FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado') ORDER BY idrequerimentos DESC LIMIT 1))";
-          $result = mysql_query($sql) or die(mysql_error());
 
-          while ($row = mysql_fetch_assoc($result)) {
-            echo "<div class='categoria'>";
-            echo "<h2>" . $row['descricao'] . "</h2>";
-            echo "<button class='btn btn-primary' data-toggle='modal' data-target='#criterioModal'>Criar Critério</button>";
-            
-          }
-          ?>
-        </div>
 
-        <!-- Modal -->
+
         <div class="modal fade" id="criterioModal" tabindex="-1" role="dialog" aria-labelledby="criterioModalLabel"
           aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -323,7 +360,7 @@
               </div>
               <form action="criterio.php" method="post">
                 <div class="modal-body">
-                  <input type="hidden" name="categoria_id" value="<?php echo $row['id_categoria']; ?>">
+                  <input type="hidden" name="categoria_id" value="">
                   <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <textarea class="form-control" id="descricao" name="descricao"></textarea>
@@ -341,123 +378,108 @@
             </div>
           </div>
         </div>
-        
 
-        <div class="criterios-section">
-          <?php
-          $emaillogado = $_SESSION['email'];
-          $sql = "SELECT * FROM criterios WHERE categoria_id IN (SELECT id FROM categorias WHERE parte_id IN (SELECT id FROM partes WHERE idrequerimentos=(SELECT id FROM requerimentos WHERE usuario_id=(SELECT id_usuario FROM usuario WHERE email='$emaillogado') ORDER BY idrequerimentos DESC LIMIT 1)))";
-          $result = mysql_query($sql) or die(mysql_error());
 
-          while  ($row = mysql_fetch_assoc($result)) {
-            
-            echo "<h2>" . $row['descricao'] . "</h2>";
-            echo "<p>" . $row['pontos'] . "</p>";
-            echo "</div>";
-            echo "</div>";
-            
-            
-          }
 
-          ?>
-        </div>
       </div>
-      </div>
-        </div>
-        </div>
-      <section class="info_section ">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="info_contact">
-                <h5>
-                  <a href="" class="navbar-brand">
-                    <span>
-                      Topo
-                    </span>
-                  </a>
-                </h5>
-                <p>
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
-                  IFFar Campus FW
-                </p>
-                <p>
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  +01 123456789
-                </p>
-                <p>
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  cppd2023@iffar.edu.br
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="info_info">
-                <h5>
-                  Informações
-                </h5>
-                <p>
-                  Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
-                </p>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="info_links">
-                <h5>
-                  Links Úteis
-                </h5>
-                <ul>
-                  <li>
-                    <a href="index.php">
-                      Home
-                    </a>
-                  </li>
-                  <li>
-                  </li>
+      <a href='enviar_requerimento.php?id=" . $rowParte[' id'] class='btn btn-primary'>Enviar Requerimento</a>
+    </div>
+  </div>
 
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="info_form ">
-                <h5>
-                  Newsletter
-                </h5>
-                <form action="">
-                  <input type="email" placeholder="Enter your email">
-                  <button>
-                    Subscribe
-                  </button>
-                </form>
-                <div class="social_box">
-                  <a href="">
-                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                  </a>
-                  <a href="">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                  </a>
-                  <a href="">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                  </a>
-                  <a href="">
-                    <i class="fa fa-youtube" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              <a href="" class="navbar-brand">
+                <span>
+                  Topo
+                </span>
+              </a>
+            </h5>
+            <p>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              IFFar Campus FW
+            </p>
+            <p>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              +01 123456789
+            </p>
+            <p>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              cppd2023@iffar.edu.br
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              Informações
+            </h5>
+            <p>
+              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Links Úteis
+            </h5>
+            <ul>
+              <li>
+                <a href="index.php">
+                  Home
+                </a>
+              </li>
+              <li>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
         </div>
-      </section>
-      <footer class="footer_section">
-        <div class="container">
-          <p>
-            &copy; <span id="displayYear"></span> Todos os direitos reservados por
-            <a href="https://html.design/">Grupo Davi, Gabriel Brizola e Luan</a>
-          </p>
-        </div>
-      </footer>
-      <script src="js/jquery-3.4.1.min.js"></script>
-      <script src="js/bootstrap.js"></script>
-      <script src="js/custom.js"></script>
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> Todos os direitos reservados por
+        <a href="https://html.design/">Grupo Davi, Gabriel Brizola e Luan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/custom.js"></script>
+</body>
 
 </html>
