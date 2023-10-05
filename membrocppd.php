@@ -15,7 +15,15 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
     
-
+    <style>
+      body{
+      background: url('images/fundo3.jpg') center center no-repeat fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    </style>
 </head>
 
 <body>
@@ -27,7 +35,7 @@
     $emaillogado = $_SESSION['email'];
     $sqlx = "SELECT * FROM usuario WHERE usuario.email='$emaillogado'";
     $query = mysql_query($sqlx) or die (mysql_error());
-    $puxa = mysql_fetch_array($query);
+    $puxa = mysql_fetch_array($query);  
     $nome = $puxa["nome"];  
     $membrocppd = $puxa["membrocppd"];
 
@@ -83,13 +91,16 @@
                   <a class="nav-link" href="membrocppd.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="anunciar.php">Progressão Docente</a>
+                  <a class="nav-link" href="progressao.php">Progressão Docente</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="lista_usuarios.php">Lista de Usuários</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="meus_anuncios.php">Meus Anuncios</a>
+                  <a class="nav-link" href="consulta.php">Consultar Progressão</a>
+                </li>               
+                <li class="nav-item">
+                  <a class="nav-link" href="">**Histórico</a>
                 </li>
               </ul>
             </div>
@@ -147,7 +158,7 @@
         </div>
       </div>
     </section>
-  </div>
+  </div><br><br><br>
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
@@ -315,8 +326,6 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
-
-
 </body>
 
 </html>

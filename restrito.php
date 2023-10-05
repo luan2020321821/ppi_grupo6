@@ -8,18 +8,24 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-
     <title>Controle de Progressões CPPD</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
-
-    <!--rodapé da pagina-->
-	  <link href="css/font-awesome.min.css" rel="stylesheet" />
-	  <link href="css/style.css" rel="stylesheet" />
+    
+    <style>
+      body{
+      background: url('images/fundo3.jpg') center center no-repeat fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    </style>
 </head>
-
+<body>
 <?php
             session_start();
 
@@ -40,7 +46,7 @@
     <header class="header_section">
       <div class="header_top">
         <a class="cppd-link">
-          <span>CPPD</span> Comissão Permanente de Pessoal Docente
+          <span><H1>CPPD</H1></span> Comissão Permanente de Pessoal Docente
         </a>
       <div class="container-fluid">
           <div class="top_nav_container">
@@ -69,7 +75,7 @@
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
             <a class="navbar-brand" href="membrocppd.php">
-              <a class="nav-link" href="index.php">Você está logado como: Membro da CPPD <span class="sr-only"></span></a>
+              <a class="nav-link" href="index.php">Você está logado como: Professor <span class="sr-only"></span></a>
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,13 +85,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="restrito.php">Início<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="restrito.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="anunciar.php">Progressão docente</a>
+                  <a class="nav-link" href="consulta.php">Consultar Progressão</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="meus_anuncios.php">Meu Histórico</a>
+                  <a class="nav-link" href="">Meu Histórico</a>
                 </li>
               </ul>
             </div>
@@ -143,10 +149,11 @@
         </div>
       </div>
     </section>
-  </div>
+  </div><br><br><br>
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
+      
         <h2>
           Qual o objetivo do sistema da CPPD?
         </h2>
@@ -217,7 +224,6 @@
       </div>
     </div>
   </section>
-  <!--rodapé da pagina-->
   <section class="info_section ">
     <div class="container">
       <div class="row">
@@ -250,7 +256,7 @@
               Informações
             </h5>
             <p>
-              Sistema em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023.
+              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
             </p>
           </div>
         </div>
@@ -262,7 +268,7 @@
             <ul>
               <li>
                 <a href="index.php">
-                  Página Inicial
+                  Home
                 </a>
               </li>
               <li>
@@ -272,7 +278,7 @@
           </div>
         </div>
         <div class="col-md-3">
-         <!-- <div class="info_form ">
+          <div class="info_form ">
             <h5>
               Newsletter
             </h5>
@@ -295,7 +301,7 @@
               <a href="">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
               </a>
-            </div>-->
+            </div>
           </div>
         </div>
       </div>
@@ -312,8 +318,7 @@
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
-
-
+  
 </body>
-
+  
 </html>
