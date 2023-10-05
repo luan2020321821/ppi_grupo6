@@ -46,16 +46,14 @@ include "config.php";
         }
     }
 	else{
-
 		?>
 		<script>
-		
-			alert("Você não pode logar-se!\nEste usuário e/ou senha não são válidos!\nPor favor tente novamente ou contate o adminstrador do sistema!")
-		
+		alert("Você não pode logar-se!\nEste usuário e/ou senha não são válidos!\nPor favor tente novamente ou contate o adminstrador do sistema!")
 		</script>
 		<?php
+
 		//echo " Você não pode logar-se! <br> Este usuário e/ou senha não são válidos!<br>
-			//Por favor tente novamente ou contate o adminstrador do sistema!<br>";
+		//Por favor tente novamente ou contate o adminstrador do sistema!<br>";
 
 		include "loginpage.php";
 

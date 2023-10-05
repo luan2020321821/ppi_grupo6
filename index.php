@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="icon" href="images/IF1.png" type="" />
+    <link rel="icon" href="images/IF1.png" type="image/gif" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -15,12 +15,16 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/responsive.css" rel="stylesheet" />
-
-    <!--rodapé da pagina-->
-	  <link href="css/font-awesome.min.css" rel="stylesheet" />
-	  <link href="css/style.css" rel="stylesheet" />
     
-
+    <style>
+      body{
+      background: url('images/fundo3.jpg') center center no-repeat fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    </style>
     </head>
 
 <body>
@@ -29,7 +33,7 @@
     <header class="header_section">
       <div class="header_top">
         <a class="cppd-link">
-          <span>CPPD</span> Comissão Permanente de Pessoal Docente
+          <span><h1>CPPD</h1></span> Comissão Permanente de Pessoal Docente
         </a>
       <div class="container-fluid">
           <div class="top_nav_container">
@@ -52,7 +56,7 @@
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="membrocppd.php">
               <a class="nav-link" href="index.php">Você não está logado <span class="sr-only"></span></a>
             </a>
 
@@ -63,7 +67,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Página Inicial<span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="index.php">Início <span class="sr-only">(current)</span></a>
                 </li>
               </ul>
             </div>
@@ -141,7 +145,7 @@
         </div>
       </div>
     </section>
-  </div>
+  </div><br><br><br>
   <section class="client_section layout_padding-bottom">
     <div class="container">
       <div class="heading_container heading_center">
@@ -215,7 +219,6 @@
       </div>
     </div>
   </section>
-  <!--rodapé da pagina-->
   <section class="info_section ">
     <div class="container">
       <div class="row">
@@ -248,7 +251,7 @@
               Informações
             </h5>
             <p>
-              Sistema em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023.
+              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
             </p>
           </div>
         </div>
@@ -260,7 +263,7 @@
             <ul>
               <li>
                 <a href="index.php">
-                  Página Inicial
+                  Home
                 </a>
               </li>
               <li>
@@ -270,7 +273,7 @@
           </div>
         </div>
         <div class="col-md-3">
-        <!--  <div class="info_form ">
+          <div class="info_form ">
             <h5>
               Newsletter
             </h5>
@@ -293,7 +296,7 @@
               <a href="">
                 <i class="fa fa-youtube" aria-hidden="true"></i>
               </a>
-            </div>-->
+            </div>
           </div>
         </div>
       </div>
@@ -307,6 +310,8 @@
       </p>
     </div>
   </footer>
+  
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.js"></script>
   <script src="js/custom.js"></script>
