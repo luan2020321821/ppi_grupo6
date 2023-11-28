@@ -1,10 +1,77 @@
-body {
+body{
+  background-color: #f5f5dc;
+}
+conbody {
   font-family: 'Poppins', sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
   overflow-x: hidden;
 }
+#account-form{
+  background-color: #d6ddf4;
+}
+#lembrete{
+  background-color: #fff7a4;
+  padding: 20px; 
+  border-width: 3px; 
+  border-style: dotted;
+}
+#objetivo{
+  text-align: center;
+  /*color: #0c0c0c;
+  background-color: #f8f8f8;
+  border-width: 2px;
+  border-style: dashed;
+  padding: 12px;
+  border-radius: 4px;*/
+}
+.excluir{
+  font-size: 14px;
+  color: rgb(189, 22, 22);
+  font-style: bold;
+}
+.mb5, #config-conta {
+  border: 1px solid #dddddd; /* Define uma borda sólida vermelha com 2 pixels de largura */
+  padding: 10px; /* Adiciona um espaço interno de 10 pixels ao redor do texto */
+  text-align: center; /* Centraliza o texto dentro da borda */
+  border-radius: 16px;
+}
+.imagem-do-carousel img{
+  width: 260px;
+  right: 5%;
+  padding: 20px;
+}
 
+.card-header{
+  color: #313958;
+}
+.card {
+  max-width: 800px;
+  min-width: 400px;
+  min-height: 300px;
+}
+.card #botao-card{
+  position: relative;
+  vertical-align: bottom;
+}
+.cards-tela-principal{
+  padding: 15px;
+  text-align: center;
+}
+.sair{
+  text-align: center;
+}
+
+.pontos{
+  font-size: 24px;
+}
+.fonte-logado{
+  font-size: 18px;
+  font-style: italic;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  vertical-align: center;
+  color: #e2f3e2;
+}
 .pesquisa_usuario {
   background-color: #e2f3e2;
   text-align: left;
@@ -26,39 +93,41 @@ body {
 }
 
 .heading_container, .heading_center{
-  background-color: rgb(231, 247, 213);
-  border: 4px solid black;
+  /*background-color: rgb(221, 245, 198);
+  border: 1px solid black;*/
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 4%;
   margin-right: 4%;
-  border-radius: 12px;
-  align-items: left;
+  border-radius: 4px;
+  /*align-items: left;*/
   min-width: 60%;
-  text-align: left;
+  /*text-align: left;*/
 }
 .partes-section {
   background-color: rgb(244, 247, 213);
-  border: 4px solid black;
+  border: 1px solid black;
   padding: 10px;
-  margin-top: 6%;
-  margin-bottom: 6%;
-  margin-left: 2%;
-  margin-right: 2%;
-  border-radius: 12px;
+  margin-top: 4%;
+  margin-bottom: 4%;
+  /*margin-left: 2%;
+  margin-right: 2%;*/
+  border-radius: 4px;
   justify-content:center;
   min-width: 600px;
+  max-width: 1200px;
+  width: auto;
 }
 .categorias-section {
   background-color: rgb(233, 213, 247);
-  border: 4px solid black;
+  border: 1px solid black;
   padding: 10px;
   margin-top: 6%;
   margin-bottom: 6%;
   margin-left: 2%;
   margin-right: 2%;
-  border-radius: 12px;
+  border-radius: 4px;
   justify-content: center;
   min-width: 0px;
 }
@@ -84,13 +153,13 @@ body {
 }
 .criterios-section {
   background-color: rgb(213, 247, 243);
-  border: 4px solid rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   /*margin-left: 18%;*/
   /*margin-right: 18%;*/
-  border-radius: 8px;
+  border-radius: 4px;
   justify-content: center;
   align-items: center;
   font-size: medium;
@@ -111,21 +180,21 @@ input::placeholder {
 }
 
 .search_input {
+  width: 340px;
   color: rgb(255, 255, 255);
   border: 0;
   outline: 0;
   background: none;
-  width: 0;
   caret-color: transparent;
   line-height: 40px;
-  transition: width 0.3s linear;
+  /*transition: width 0.3s linear;*/
 }
 
 .searchbar:hover>.search_input {
-  padding: 0 10px;
+  /*padding: 0 10px;
   width: 450px;
+  transition: width 0.4s linear;*/
   caret-color: rgb(255, 255, 255);
-  transition: width 0.4s linear;
 } 
 
 .searchbar:hover>.search_icon {
@@ -262,21 +331,51 @@ a:focus {
 }
 
 
-.header_section .header_top {
+/*.header_section .header_top {
   padding: 15px 0;
   background: rgb(17,167,46);
-  background: linear-gradient(90deg, rgba(17,167,46,1) 0%, rgb(193, 255, 207) 26%, rgba(255,255,255,1) 54%);
+  background: linear-gradient(90deg, rgba(17,167,46,1) 0%, rgb(192, 255, 206) 25%, rgba(255,255,255,1) 54%);
   height: 208px;
   display: flex;
   justify-content: center;
   align-items: center;
+}*/
+
+/*ALTERAÇÃO DO DEGRADE*/
+.header_section .header_top {
+  position: relative;
+  padding: 15px 0;
+  height: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Oculta o conteúdo que ultrapassa o contêiner */
+  background-color: white; /* Define a cor de fundo para o lado direito (branco) */
+  z-index: 1;
 }
+
+.header_section .header_top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%; /* Ajusta o posicionamento para cobrir completamente o canto superior esquerdo */
+  width: 160%; /* Ajusta a largura para cobrir completamente o contêiner */
+  height: 100%;
+  background-color: #269717; /* Cor de fundo para o lado esquerdo (verde) */
+  /*cor original*/
+  /*background-color: #108a00; /* Cor de fundo para o lado esquerdo (verde) */
+  transform: skewX(40deg); /* Inclinação de -20 graus para criar a divisão diagonal */
+  box-shadow: 0px 2px 5px #0c0c0c;
+}
+
+/*FIM DA ALTERAÇÃO*/
 
 .header_section .header_top .cppd-link {
   color: white;
-  text-align: left;
+  /*text-align: left;*/
   display: inline-block;
   padding-left: 1.8%;
+  z-index: 1;
 }
 
 .header_section .header_top .cppd-link span {
@@ -300,14 +399,14 @@ a:focus {
   
 }
 
-.goofy_image {
-  
+.logo_if img {  
   position: absolute;
-  top: 0;
-  left: 45.6%;
-  right: 0;
-  bottom: 0;
-  
+  text-align: right;
+  right: 2%;
+  padding: 2px;
+  width: 120px;
+  top: 5%;
+  bottom: 5%;
 }
 
 
@@ -410,6 +509,9 @@ a:focus {
   color: #ffffff;
   text-align: center;
 }
+.nav-link a{
+  color: #ffffff;
+}
 
 .custom_nav-container .navbar-nav .nav-item:hover .nav-link, .custom_nav-container .navbar-nav .nav-item.active .nav-link {
   color: #f3c93e;
@@ -476,7 +578,11 @@ a:focus {
 
 /*end header section*/
 /* slider section */
+/*CARROSSEL PRINCIPAL*/
 .slider_section {
+  
+  margin: 0px;
+  border-radius: 5px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -487,7 +593,7 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
   padding: 45px 0;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.798);
 
 }
 
@@ -500,6 +606,7 @@ a:focus {
 .slider_section #customCarousel1 {
   width: 100%;
   position: unset;
+  color: #313958;
 }
 
 .slider_section .detail-box {
@@ -532,7 +639,7 @@ a:focus {
 }
 
 .slider_section .detail-box a:hover {
-  background-color: transparent;
+  background-color: transredparent;
   color: #f3c93e;
 }
 
@@ -556,6 +663,10 @@ a:focus {
   -webkit-transform: translateY(50%);
           transform: translateY(50%);
   z-index: 3;
+}
+
+.carousel-inner{
+height: 310px;
 }
 
 .slider_section .carousel_btn_box .carousel-control-prev,
@@ -822,8 +933,13 @@ a:focus {
   margin: 20px auto;
 }
 
+/*OBJETIVO DA CPPD INDEX.HTML*/
 .client_section .client_container .box .detail-box {
+  font-size: larger;
+  font-family: serif;
+  border-radius: 5px;
   padding: 35px;
+  background-color: #ffffff;
   -webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.29);
 }

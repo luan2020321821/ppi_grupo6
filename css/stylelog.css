@@ -4,6 +4,58 @@
 * {
 	box-sizing: border-box;
 }
+.text_cadastro{
+	font-size: 14px;
+}
+/* Estilo para o botão select com seta indicativa */
+.select-btn {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px 8px 20px; /* Ajuste o padding conforme necessário */
+    border: 1px solid #108A00;
+    border-radius: 5px;
+    background-color: #ceffcb;
+    cursor: pointer;
+}
+
+/* Estilo para a seta ao lado do botão */
+.select-btn::after {
+    content: '\25BC'; /* Unicode para a seta para baixo */
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Estilo quando o botão select é hover */
+.select-btn:hover {
+    background-color: #aaf5a6;
+    /* Adicione outras alterações de estilo conforme necessário */
+}
+
+/* Estilo quando o botão select está focado ou ativo */
+.select-btn:active, .select-btn:focus {
+    outline: none;
+    /* Adicione outras alterações de estilo conforme necessário */
+}
+
+/* Estilizando as opções do dropdown */
+.select-btn option {
+    background-color: #ccc;
+    color: #1b0042;
+}
+
+
+/*#nivel{
+	appearance: none;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}*/
 
 body {
 	background: #f6f5f7;

@@ -1999,6 +1999,10 @@ textarea.form-control {
   margin-bottom: 1rem;
 }
 
+.form-group input[type="text"], input[type="password"], input[type="email"]{
+  width: 100%;
+}
+
 .form-text {
   display: block;
   margin-top: 0.25rem;
@@ -2428,25 +2432,32 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  /*background-color: #0069d9;
+  border-color: #0062cc;*/
+  background-color: #5fb853;
+  border-color: #108a00;
 }
 
 .btn-primary:focus, .btn-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+  /*box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);*/
+  box-shadow: 0 0 0 0.2rem rgb(152, 228, 90);
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  /*background-color: #007bff;
+  border-color: #007bff;*/
+  background-color: #5fb853;
+  border-color: #108a00;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-  color: #fff;
+  color: #fff;/*
   background-color: #0062cc;
-  border-color: #005cbf;
+  border-color: #005cbf;*/
+  background-color: #5fb853;
+  border-color: #108a00;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
