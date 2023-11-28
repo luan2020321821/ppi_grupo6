@@ -17,9 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefone = $_POST["telefone"];
     $siape = $_POST["siape"];
     $titulacao = $_POST["titulacao"];
-    $cpf = $_POST["cpf"];
+    $foto_perfil_temp = $_FILES["foto_perfil"]["tmp_name"];
+    $foto_perfil_nome = $_FILES["foto_perfil"]["name"];
+    $foto_perfil_destino = $_SERVER['DOCUMENT_ROOT'] . "/cppd/imagens/" . $foto_perfil_nome;
 
-    $sql = "UPDATE usuario SET nome='$nome', email='$email', telefone='$telefone', siape='$siape', titulacao='$titulacao', cpf='$cpf' WHERE email='$emaillogado'";
+
+    $sql = "UPDATE usuario SET nome='$nome', email='$email', telefone='$telefone', siape='$siape', titulacao='$titulacao', foto_perfil='$foto_perfil_destino' WHERE email='$emaillogado'";
     $query = mysql_query($sql) or die(mysql_error());
 
     if ($query) {

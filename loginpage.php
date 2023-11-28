@@ -28,12 +28,11 @@
 				<input type="text" name="nome" placeholder="Nome" required="">
 				<input type="text" name="siape" placeholder="SIAPE" required="">
 				<input type="text" name="titulacao" placeholder="Titulação" required="">
-				<input type="text" name="tel" placeholder="Telefone" required="">
 				<input type="email" id="email" name="email" placeholder="Email" required="">
 				<input type="password" name="senha" placeholder="Senha" required="">
-				<label for="dataingresso" class="text_cadastro"><b>Data de Ingresso na Instituição:</b></label>
 				<input type="date" id="dataIngresso" name="dataingresso" placeholder="Data de ingresso" required>
-				<label for="nivel" class="text_cadastro"><b>Selecione o seu nível funcional:</b></label>
+				<input type="text" name="tel" placeholder="Telefone" required="">
+				<label for="nivel"><i>Selecione o seu nível funcional:</i></label>
 				<select name="nivel" class="select-btn" id="">
 					<option value="1_01">Classe DI, Nível 01</option>
 					<option value="1_02">Classe DI, Nível 02</option>
@@ -48,7 +47,9 @@
 					<option value="4_03">Classe DIV, Nível 03</option>
 					<option value="4_04">Classe DIV, Nível 04</option>
 				</select>
-				<hr>
+				<br>
+				<!--<input type="text" name="cpf" placeholder="CPF" required="">
+				<input type="text" name="cidade" placeholder="Cidade" required="">-->
 			<button>Cadastrar-se</button>
 		</form>
 	</div>
@@ -57,7 +58,7 @@
 			<h1>Entrar</h1><br><br>
 				<input type="email" name="email1" placeholder="Email" required="">
 				<input type="password" name="senha1" placeholder="Senha" required="">
-			<a onclick="esqueceu_senha()">Esqueceu sua senha?</a>
+			<a href="#">Esqueceu sua senha?</a>
 			<button >Entrar</button>
 		</form>
 	</div>
@@ -86,11 +87,6 @@
         dataAtualFormatada = ano + '-' + mes + '-' + dia;
         document.getElementById('dataIngresso').value = dataAtualFormatada;
     };
-</script>
-<script>
-	function esqueceu_senha(){
-		alert("Para alterar a sua senha entre em contato com um administrador do sistema.");
-	}
 </script>
 <script>
 const signUpButton = document.getElementById('signUp');

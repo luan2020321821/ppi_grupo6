@@ -86,22 +86,22 @@
 <!--INICIO DOS CARDS-->
     <?php
 
-    //$sqlNome = "SELECT nome FROM usuario WHERE usuario_id =(SELECT usuario_id FROM requerimentos WHERE status = 'pendente')";
+    $sqlNome = "SELECT nome FROM usuario WHERE usuario_id =(SELECT usuario_id FROM requerimentos WHERE status = 'pendente')";
 
 
     echo "<div class='row row-cols-1 row-cols-md-3 mb-3 text-center cards-tela-principal'>";
         echo "<div class='col'>";
             echo "<div class='card mb-4 rounded-3 shadow-sm'>";
               echo "<div class='card-header py-3>";
-                echo "<h4 class='my-0 fw-normal'><i class='fa fa-exclamation'></i>  Requisição de $ Nome_professor </h4>";
+                echo "<h4 class='my-0 fw-normal'><i class='fa fa-exclamation'></i>  Requisição de $Nome  </h4>";
               echo "</div>";
               echo "<div class='card-body'>";
                 echo "<div align='left'>";
                   echo "<p><i class='fa fa-arrow-right'></i> O professor deseja ir do nível";
                   list($classe, $nivel) = explode("_0", $nivel);
-                  echo "<span class='text-left nivel_professor'>&nbsp;<b>Classe: $classe,&nbsp;</span>";
-                  echo "<span class='text-left nivel_professor'>Nível: $nivel&nbsp;</b></span>";
-                  echo "para o nível seguinte.</p>";
+                  echo "<h4 class='text-left nivel_professor'>Classe: $classe</h4>";
+                  echo "<h4 class='text-left nivel_professor'>Nível: $nivel</h4>";
+                  echo "para o nível seguinte?.</p>";
                 echo "</div>";
                 echo "<div id='botao-card'>";
                 echo "<a type='button' class='w-50 btn btn-lg btn-primary' href='avaliacao_form.php'>Avaliar Requerimento</a>";

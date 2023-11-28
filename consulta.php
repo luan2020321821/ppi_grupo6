@@ -34,53 +34,38 @@ $nome = $puxa["nome"];
 $classe = $puxa["membrocppd"];
 
 ?>
+<?php
+            $classe = $puxa["membrocppd"];
 
+            if($classe == 1){
+                $classe1 = "membrocppd.php";
+                $classe2 = "Membro CPPD";
+            } else{
+              $classe1 = "restrito.php";
+              $classe2 = "Professor";
+            }
+            ?> 
 <body>
   <div class="hero_area">
     <header class="header_section">
-      <div class="header_top">
+    <div class="header_top">
         <div class="cppd-link">
-          <span>
-            <h1>CPPD</h1>
-          </span>Comissão Permanente de Pessoal Docente
+          <span><H1>CPPD</H1></span> Comissão Permanente de Pessoal Docente
         </div>
-        <div class="container-fluid">
+      <div class="container-fluid">
           <div class="top_nav_container">
-            <div>
-              <img height="208" src="images/if_logo.png" class="goofy_image">
-            </div>
-            <div class="user_option_box">
-              <a href="index.php" class="cart-link">
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                <span>
-                  Olá <b>
-                    <?php echo $nome; ?>
-                  </b>
-                </span>
-              </a>
-              <a href="meu_usuario.php" class="cart-link">
-                <i class="fa fa-id-card" aria-hidden="true"></i>
-                <span>
-                  Minhas Informações
-                </span>
-              </a>
-              </a>
-            </div>
+            <div class="logo_if" align="right">
+              <img src="images/IFFar_logo.png">
+            </div>            
           </div>
         </div>
       </div>
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="membrocppd.php">
-              <?php
-              if ($classe == 1) {
-                echo "<a class='nav-link'>Você está logado como: Membro da CPPD <span class='sr-only'></span></a>";
-              } else {
-                echo "<a class='nav-link' >Você está logado como: Professor <span class='sr-only'></span></a>";
-              }
-              ?>
-            </a>
+            <div class="fonte-logado">
+              <span class="fonte-logado"><span>Olá <b><?php echo $nome; ?></b></span>, <br>você está logado como: <?php echo "$classe2"; ?></span>
+            </div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -96,35 +81,23 @@ $classe = $puxa["membrocppd"];
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
                 <li class="nav-item">
-                  <a class="nav-link" href="<?php echo $classe1; ?>">Home</a>
+                  <a class="nav-link" href="<?php echo $classe1; ?>"><i class="fa fa-home"></i> Home</a>
                 </li>
-                <?php
-                if ($classe == 1) {
-                  echo '<li class="nav-item">';
-                  echo '<a class="nav-link" href="progressao.php">Progressão Docente</a>';
-                  echo '</li>';
-                }
-                ?>
-                <li class="nav-item  active">
-                  <a class="nav-link" href="consulta.php">Consultar Progressão</a>
-                </li>
-                <?php
-                if ($classe == 1) {
-                  echo '<li class="nav-item">';
-                  echo '<a class="nav-link" href="lista_usuarios.php">Lista de Usuários</a>';
-                  echo '</li>';
-                }
-                ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="">Histórico</a>
+                  <a class="nav-link" href="notificoes.php"><i class="fa fa-bell"></i> Notificações</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="meu_usuario.php"><i class="fa fa-user"></i> Minhas Informações</a>
+                </li>
+                <li class="nav-item">
+                  <a type="button" class="btn btn-danger btn" href="index.php"><i class="fa fa-sign-out"></i> Sair</a>
                 </li>
               </ul>
             </div>
           </nav>
         </div>
       </div>
-    </header>
-
+    </header> 
 
     <?php
 
@@ -182,7 +155,7 @@ $classe = $puxa["membrocppd"];
       echo '</div>';
 
       echo '<div class="text-center mt-5"> ';
-      echo '<a href="progressao.php" class="btn btn-primary" data-target="#parteModal">Iniciar Progressão</a>';
+      echo '<a href="formulario.php" class="btn btn-primary" data-target="#parteModal">Iniciar Progressão</a>';
       echo '</div>';
     } else if ($requerimento_existente >= 1) {
       echo '<div class="container">';
@@ -249,98 +222,121 @@ $classe = $puxa["membrocppd"];
 
 
     <section class="info_section mt-5">
-      <div class="container">
-        <section class="info_section ">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-3">
-                <div class="info_contact">
-                  <h5>
-                    <a href="" class="navbar-brand">
-                      <span>
-                        Topo
-                      </span>
-                    </a>
-                  </h5>
-                  <p>
-                    <i class="fa fa-map-marker" aria-hidden="true"></i>
-                    IFFar Campus FW
-                  </p>
-                  <p>
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    +01 123456789
-                  </p>
-                  <p>
-                    <i class="fa fa-envelope" aria-hidden="true"></i>
-                    cppd2023@iffar.edu.br
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="info_info">
-                  <h5>
-                    Informações
-                  </h5>
-                  <p>
-                    Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="info_links">
-                  <h5>
-                    Links Úteis
-                  </h5>
-                  <ul>
-                    <li>
-                      <a href="index.php">
-                        Home
-                      </a>
-                    </li>
-                    <li>
-                    </li>
-
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="info_form ">
-                  <h5>
-                    Newsletter
-                  </h5>
-                  <form action="">
-                    <input type="email" placeholder="Enter your email">
-                    <button>
-                      Subscribe
-                    </button>
-                  </form>
-                  <div class="social_box">
-                    <a href="">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                    <a href="">
-                      <i class="fa fa-youtube" aria-hidden="true"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <footer class="footer_section">
-          <div class="container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="info_contact">
+            <h5>
+              <a href="" class="navbar-brand">
+                <span>
+                  Topo
+                </span>
+              </a>
+            </h5>
             <p>
-              &copy; <span id="displayYear"></span> Todos os direitos reservados por
-              <a href="https://html.design/">Grupo Davi, Gabriel Brizolla e Luan</a>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              IFFar Campus FW
+            </p>
+            <p>
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              +01 123456789
+            </p>
+            <p>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              cppd2023@iffar.edu.br
             </p>
           </div>
-        </footer>
+        </div>
+        <div class="col-md-3">
+          <div class="info_info">
+            <h5>
+              <i class="fa fa-info"></i> Informações
+            </h5>
+            <p>
+              Sistema ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              Links Úteis
+            </h5>
+            <ul>
+              <li>
+                <a href="index.php">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="https://www.iffarroupilha.edu.br/" target="_blank">IFFar</a>
+              </li>
+              <li>
+                <a href="https://sites.google.com/iffarroupilha.edu.br/cppd-fw/progress%C3%A3o-promo%C3%A7%C3%A3o?authuser=0" target="_blank">Site da CPPD</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              <i class="fa fa-users"></i> Membros CPPD
+            </h5>
+            <ul>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--<div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </section>
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> Todos os direitos reservados pelo
+        <a href="https://html.design/">grupo: Davi, Gabriel Brizola e Luan</a>
+      </p>
+    </div>
+  </footer>
         <script src="js/jquery-3.4.1.min.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/custom.js"></script>

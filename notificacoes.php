@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  
-
-
 <html>
 <head>
-    <title>Sistema</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" href="images/IF1.png" type="image/gif" />
@@ -40,9 +35,8 @@
             $query = mysql_query($sqlx) or die (mysql_error());
             $puxa = mysql_fetch_array($query);
             
-            $id_usuario = $puxa["id_usuario"];  
             $nome = $puxa["nome"];   
-            $mensagem = isset($puxa["mensagem"]) ? $puxa["mensagem"] : '';  
+            $mensagem1 = isset($puxa["mensagem"]) ? $puxa["mensagem"] : '';  
         ?>
         <?php
             $classe = $puxa["membrocppd"];
@@ -114,34 +108,31 @@
                   <?php
                    
                    
-  
-                   $sqlz = "SELECT * FROM notificacoes WHERE notificacoes.usuario_id='$id_usuario'";
-            
-                   $queryz = mysql_query($sqlz) or die (mysql_error());
-                   $puxaz = mysql_fetch_array($queryz); 
+   while ($rowNotificacoes = mysql_fetch_assoc($resultNotificacoes)) {
+          echo "<div class='partes-section'>";
+          echo "<div class='parte'>";
+          echo "<div class='custom-control custom-checkbox'>";
+          echo "$mensagem1";
+        $lido = $rowNotificacoes ['lido'] == 1 ? true : false;
+ 
+          echo "<input type='checkbox' class='custom-control-input' id='same-address'>";
+          echo  "<label class='custom-control-label' for='same-address'>Lido</label>";
+
+        $mensagem = isset($puxa["mensagem"]) ? $puxa["mensagem"] : '';  
+          echo "$mensagem";
+          echo "</div>";
+        
+          $NotificacoesId = $rowNotificacoes['id'];
+          $sqlCategorias = "SELECT * FROM categorias WHERE parte_id=$NotificacoesId";
+          $resultCategorias = mysql_query($sqlCategorias) or die(mysql_error());
 
           
-?>
-  <label class="container"><?php 
-  if($mensagem >= "1"){
-  echo "Mensagem: <br>";
-  echo $mensagem = $puxaz["mensagem"];
-  echo"<input type='checkbox'>Lido";
-  echo"<span class='checkmark'></span>";
-  }else{
-    echo "Nenhuma notificação disponível!";
-  }
-  ?> 
-  
-</label>
-<?php
-          
-
-       
+              
+            }
             
               
 
-            //echo"Seu requerimento já foi avaliado!";
+            echo"Seu requerimento já foi avaliado!";
 
             echo "</div>";
           

@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 
 
@@ -11,11 +13,12 @@ session_start();
 	 $ema = $_POST["email"];
 	 $datnas = $_POST['dataingresso'];
 	 $siape = $_POST["siape"];
-	 $cid = $_POST["cidade"];
+	 //$cid = $_POST["cidade"];
 	 $tel = $_POST["tel"];
 	 $sen = $_POST["senha"];
 	 $tit = $_POST["titulacao"];
-	 $cpf = $_POST['cpf'];
+	 //$cpf = $_POST['cpf'];
+	 $nivel = $_POST["nivel"];
 
 
 ?>	
@@ -53,17 +56,17 @@ if($sen==""){
 }
 
 
-if($cpf==""){
+/*if($cpf==""){
 	?>
 	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript"> alert ("ERRO!\n\n Voce deve digitar um cpf para o usuario! \n\n \n\n")</SCRIPT>
 	<SCRIPT language="JavaScript">window.history.go(-1);</SCRIPT>
 	<?php		
-}
+}*/
 
 
 $senha_encriptada = md5($sen);
 
-$sql = mysql_query("INSERT INTO usuario (nome, email, dataingresso, siape, titulacao, cidade, telefone, senha, cpf) VALUES('{$nom}','{$ema}','{$datnas}','{$siape}','{$tit}','{$cid}','{$tel}','{$senha_encriptada}','{$cpf}')")or die( mysql_error() );
+$sql = mysql_query("INSERT INTO usuario (nome, email, dataingresso, siape, titulacao, telefone, senha, nivel) VALUES('{$nom}','{$ema}','{$datnas}','{$siape}','{$tit}','{$tel}','{$senha_encriptada}','{$nivel}')")or die( mysql_error() );
 
 				if (!$sql){
 
@@ -72,15 +75,20 @@ $sql = mysql_query("INSERT INTO usuario (nome, email, dataingresso, siape, titul
 				}
 			
 
-	else{
-	
-
-		?>
-		<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript"> alert ("\n\n Cadastrado realizado com sucesso! \n\n")</SCRIPT>
-		<SCRIPT language="JavaScript">window.history.go(-2);</SCRIPT>
-		<?php	
-	}
-
-
-
+				else {
+					// Obter o ID do usuário recém-criado
+					$usuario_id = mysql_insert_id();
+			
+					// Inserir um registro na tabela notificações com o usuário_id
+					$sqlNotificacao = mysql_query("INSERT INTO notificacoes (usuario_id) VALUES ('{$usuario_id}')") or die(mysql_error());
+			
+					if (!$sqlNotificacao) {
+						echo "Erro ao registrar na tabela de notificações.";
+					} else {
+						?>
+						<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript"> alert ("\n\n Cadastrado realizado com sucesso! \n\n")</SCRIPT>
+						<SCRIPT language="JavaScript">window.history.go(-2);</SCRIPT>
+						<?php 
+					}
+				}			
 ?>

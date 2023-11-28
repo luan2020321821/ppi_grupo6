@@ -15,7 +15,15 @@
   <link href="css/font-awesome.min.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
   <link href="css/responsive.css" rel="stylesheet" />
-
+  <style>
+      body{
+      background: url('images/fundo2.png') center center no-repeat fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+    </style>
 
 </head>
 
@@ -29,10 +37,10 @@
         </div>
         <div class="container-fluid">
           <div class="top_nav_container">
-            <div>
-              <img height="208" src="images/if_logo.png" class="goofy_image">
+            <div class="logo_if">
+              <img src="images/IFFar_logo.png" alt="Logo do Instituo Federal Farroupilha" title="Logo do Instituo Federal Farroupilha">
             </div>
-            <div class="user_option_box">
+            <!--<div class="user_option_box">
               <a href="loginpage.php" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>
@@ -40,17 +48,17 @@
                 </span>
               </a>
 
-              </a>
-            </div>
+              
+            </div>-->
           </div>
         </div>
       </div>
       <div class="header_bottom">
         <div class="container-fluid">
           <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="index.php">
-              <a class="nav-link" href="index.php">Você não está logado <span class="sr-only"></span></a>
-            </a>
+            <div class="fonte-logado">
+              <span>Você não está logado</span>
+            </div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,8 +67,11 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                <!--<li class="nav-item active">
+                  <a class="nav-link" href="index.php"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                </li>-->
+                <li class="nav-item sair">
+                  <a type="button" class="btn btn-warning" href="loginpage.php"><i class="fa fa-sign-in"></i> Entrar</a>
                 </li>
               </ul>
             </div>
@@ -76,9 +87,9 @@
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="detail-box">
+                  <div class="">
                     <h1>
-                      Bem vindo ao Sistema de controle de Progressões da CPPD
+                      Seja bem-vindo ao Sistema de controle de Progressões da CPPD
 
                     </h1>
                     <p>
@@ -94,32 +105,29 @@
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="detail-box">
+                  <div class="">
                     <h1>
                       Crie, envie e consulte processos
                     </h1>
                     <p>
                       O sistema facilita a sua gestão de processos e planilhas.
-                    </p>
-                  </div>
+                    </p>                    
+                  </div>                                              
                 </div>
-              </div>
-            </div>
+                <div class="imagem-do-carousel" align="right"> <img src="images/DI.png" alt=""></div>
+              </div>             
+            </div>           
           </div>
           <div class="carousel-item">
             <div class="container ">
               <div class="row">
                 <div class="col-md-6">
-                  <div class="detail-box">
+                  <div class="">
                     <h1>
-                      Faça o login ou cadastro
+                      Faça login como Professor ou Membro CPPD
                     </h1>
-                    <p>
-                      Faça o login ou cadastre-se como professor e/ou membro da CPPD.
-                    </p>
-                    <a href="loginpage.php">
-                      Cadastrar/Entrar
-                    </a>
+                    <p>Faça o login ou cadastre-se como professor e/ou membro da CPPD para utilizar o sistema.</p>
+                    <a  class="btn btn-success" href="loginpage.php">Cadastrar/Entrar</a>
                   </div>
                 </div>
               </div>
@@ -141,11 +149,11 @@
   </div><br><br><br>
   <section class="client_section layout_padding-bottom">
     <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
+      <!--<div class="heading_container heading_center">-->
+        <h2 id="objetivo">
           Qual o objetivo do sistema da CPPD?
         </h2>
-      </div>
+     <!--</div>-->
     </div>
     <div class="client_container ">
       <div id="carouselExample2Controls" class="carousel slide" data-ride="carousel">
@@ -250,10 +258,10 @@
         <div class="col-md-3">
           <div class="info_info">
             <h5>
-              Informações
+            <i class="fa fa-info"></i> Informações
             </h5>
             <p>
-              Site ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
+              Sistema ainda em desenvolvimento. Criado para a PPI da turma 34 no ano de 2023
             </p>
           </div>
         </div>
@@ -269,12 +277,37 @@
                 </a>
               </li>
               <li>
+                <a href="https://www.iffarroupilha.edu.br/" target="_blank">IFFar</a>
+              </li>
+              <li>
+                <a href="https://sites.google.com/iffarroupilha.edu.br/cppd-fw/progress%C3%A3o-promo%C3%A7%C3%A3o?authuser=0" target="_blank">Site da CPPD</a>
               </li>
 
             </ul>
           </div>
         </div>
         <div class="col-md-3">
+          <div class="info_links">
+            <h5>
+              <i class="fa fa-users"></i> Membros CPPD
+            </h5>
+            <ul>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+              <li>
+                  <span><b>Quandale Dingle:</b></span>
+                  <a href="mailto:quandale.dingle@iffarroupilha.edu.br?">quandale.dingle@iffarroupilha.edu.br</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--<div class="col-md-3">
           <div class="info_form ">
             <h5>
               Newsletter
@@ -300,15 +333,15 @@
               </a>
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </section>
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> Todos os direitos reservados por
-        <a href="https://html.design/">Grupo Davi, Gabriel Brizola e Luan</a>
+        &copy; <span id="displayYear"></span> Todos os direitos reservados pelo
+        <a href="https://html.design/">grupo: Davi Galetti, Gabriel Brizolla e Luan Molinari</a>
       </p>
     </div>
   </footer>

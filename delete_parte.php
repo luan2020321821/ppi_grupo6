@@ -3,7 +3,7 @@ session_start();
 include "config.php";
 
 if(isset($_GET['id'])) {
-    $parte_id = $_GET['id'];
+    $partes_id = $_GET['id'];
 
     $sql = "DELETE FROM partes WHERE id = '$partes_id'";
 
