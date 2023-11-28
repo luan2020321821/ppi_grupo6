@@ -28,11 +28,12 @@
 				<input type="text" name="nome" placeholder="Nome" required="">
 				<input type="text" name="siape" placeholder="SIAPE" required="">
 				<input type="text" name="titulacao" placeholder="Titulação" required="">
+				<input type="text" name="tel" placeholder="Telefone" required="">
 				<input type="email" id="email" name="email" placeholder="Email" required="">
 				<input type="password" name="senha" placeholder="Senha" required="">
-				<input type="date" id="dataIngresso" name="dataingresso" placeholder="Data de ingresso" required>
-				<input type="text" name="tel" placeholder="Telefone" required="">
-				<label for="nivel"><i>Selecione o seu nível funcional:</i></label>
+				<label for="dataingresso" class="text_cadastro"><b>Data de Ingresso na Instituição:</b></label>
+				<input type="date" id="dataIngresso" name="dataingresso" placeholder="Data de ingresso" required>	
+				<label for="nivel" class="text_cadastro"><b>Selecione o seu nível funcional:</i></label>
 				<select name="nivel" class="select-btn" id="">
 					<option value="1_01">Classe DI, Nível 01</option>
 					<option value="1_02">Classe DI, Nível 02</option>
@@ -47,9 +48,7 @@
 					<option value="4_03">Classe DIV, Nível 03</option>
 					<option value="4_04">Classe DIV, Nível 04</option>
 				</select>
-				<br>
-				<!--<input type="text" name="cpf" placeholder="CPF" required="">
-				<input type="text" name="cidade" placeholder="Cidade" required="">-->
+				<br><br>
 			<button>Cadastrar-se</button>
 		</form>
 	</div>
